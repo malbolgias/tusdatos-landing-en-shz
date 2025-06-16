@@ -1,0 +1,30 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Structure Guide
+
+The project follows a structured organization with key files and directories:
+
+## Core Configuration Files
+- [PLANNING.md](mdc:PLANNING.md) - Contains project architecture and tech stack details
+- [TASKS.md](mdc:TASKS.md) - Tracks current tasks and progress
+- [PROJECT_RULES.md](mdc:PROJECT_RULES.md) - Project-specific development rules
+- [RULES.md](mdc:RULES.md) - General project rules and guidelines
+
+## Content Organization
+- All content should be placed in `src/content/` using Markdown files
+- Use Astro's content collections for organizing different content types
+- Keep content separate from presentation logic
+
+## Component Structure
+- Components should be placed in `src/components/`
+- Keep components modular and under 300 lines
+- Use Tailwind CSS for styling
+- Follow semantic HTML practices
+
+## Build and Deployment
+- Build output goes to `dist/` directory
+- GitHub Actions handles deployment
+- Keep build artifacts clean and optimized

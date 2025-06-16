@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Performance and Optimization Guide
+
+## Asset Optimization
+- Optimize all images and assets for web performance
+- Use appropriate image formats (WebP when possible)
+- Implement lazy loading for images
+- Minimize asset sizes
+
+## JavaScript Optimization
+- Minimize JavaScript bundle size
+- Use Astro's partial hydration where possible
+- Avoid unnecessary client-side JavaScript
+- Implement code splitting
+
+## Build Optimization
+- Keep the `dist` directory clean
+- Optimize build output
+- Use production builds for deployment
+- Monitor bundle sizes
+
+## Performance Monitoring
+- Monitor Core Web Vitals
+- Use Lighthouse for performance audits
+- Track loading times
+- Optimize for mobile performance
+
+## Security Considerations
+- Keep dependencies updated
+- Follow security best practices
+- Validate all user inputs
+- Use environment variables for sensitive data

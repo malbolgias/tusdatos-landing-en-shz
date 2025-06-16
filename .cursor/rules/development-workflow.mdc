@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Workflow Guide
+
+## Setup and Dependencies
+- Use Bun as the package manager and runtime
+- Install dependencies using `bun install`
+- Run development server with `bun dev`
+
+## Code Organization
+- Follow the component structure in [PLANNING.md](mdc:PLANNING.md)
+- Keep components modular and reusable
+- Use Tailwind CSS for styling
+- Write semantic HTML with proper accessibility attributes
+
+## Content Management
+- Edit content in Markdown files within `src/content/`
+- Use Astro's content collections for organization
+- Keep content separate from presentation logic
+- Document content structure changes in [PLANNING.md](mdc:PLANNING.md)
+
+## Quality Assurance
+- Test components across different screen sizes
+- Ensure WCAG 2.1 AA compliance
+- Validate Markdown content
+- Check performance metrics
+- Test interactive elements
+
+## Version Control
+- Use meaningful commit messages
+- Create feature branches for new development
+- Review code before merging to main
+- Keep repository clean and organized

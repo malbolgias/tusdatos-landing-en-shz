@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Awareness and Documentation Guide
+
+## Initial Project Review
+- Always start by reading [PLANNING.md](mdc:PLANNING.md) to understand:
+  - Current architecture
+  - Tech stack (Astro + Tailwind + Markdown + Bun)
+  - Design principles
+  - Project goals
+- Review [INFORMATION.md](mdc:INFORMATION.md) to understand:
+  - Company information and mission
+  - Service offerings and pricing
+  - Content structure and requirements
+  - Brand voice and messaging
+
+## Task Management
+- Review [TASKS.md](mdc:TASKS.md) before beginning any work
+- Document new tasks with:
+  - Brief description
+  - Today's date
+  - Appropriate section placement
+- Ensure content tasks reference [INFORMATION.md](mdc:INFORMATION.md)
+
+## Project Structure Compliance
+- Follow naming conventions from [PLANNING.md](mdc:PLANNING.md)
+- Maintain consistent file structure
+- Adhere to modular layout guidelines
+- Ensure consistency across:
+  - Markdown content
+  - Astro components
+  - Layouts
+
+## Documentation Requirements
+- Keep [README.md](mdc:README.md) updated with:
+  - Setup steps
+  - Dependencies (e.g., npm to bun changes)
+  - Key usage instructions
+  - Environment requirements
+  - Development workflow
+
+## Project Context
+- Maintain awareness of project goals
+- Follow established design principles
+- Keep documentation in sync with code changes
+- Update relevant documentation when making architectural changes
+- Ensure content aligns with [INFORMATION.md](mdc:INFORMATION.md)
