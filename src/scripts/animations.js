@@ -153,22 +153,34 @@ class AnimationManager {
 class CounterAnimation {
   constructor(element, target, duration = 2000) {
     this.element = element;
-    this.target = target;
-    this.duration = duration;
+    this.target = parseInt(target) || 0;
+    this.duration = parseInt(duration) || 2000;
     this.start = 0;
-    this.increment = target / (duration / 16);
+    this.increment = this.target > 0 ? this.target / (this.duration / 16) : 0;
     this.current = 0;
-    this.animate();
+    this.isAnimating = false;
+    
+    if (this.target > 0) {
+      this.animate();
+    }
   }
 
   animate() {
-    this.current += this.increment;
-    if (this.current < this.target) {
-      this.element.textContent = Math.floor(this.current);
-      requestAnimationFrame(() => this.animate());
-    } else {
-      this.element.textContent = this.target;
-    }
+    if (this.isAnimating) return;
+    this.isAnimating = true;
+    
+    const animate = () => {
+      this.current += this.increment;
+      if (this.current < this.target) {
+        this.element.textContent = Math.floor(this.current);
+        requestAnimationFrame(animate);
+      } else {
+        this.element.textContent = this.target;
+        this.isAnimating = false;
+      }
+    };
+    
+    animate();
   }
 }
 
@@ -249,8 +261,10 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const target = entry.target;
-        const value = parseInt(target.dataset.value);
-        new CounterAnimation(target, value);
+        const value = parseInt(target.dataset.counter) || 0;
+        if (value > 0) {
+          new CounterAnimation(target, value);
+        }
         observer.unobserve(target);
       }
     });
