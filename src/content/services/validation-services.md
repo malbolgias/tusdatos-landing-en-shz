@@ -1,33 +1,25 @@
 ---
-title: "Comprehensive Validation Services"
-description: "Automated data retrieval from over 300 national and international sources to deliver comprehensive validation services"
+title: "Validation Services"
+description: "Comprehensive validation and compliance services for Colombian businesses"
 features:
-  - "Background Validation"
-  - "Restrictive List Checks and Compliance"
-  - "Deceased Person Validation"
-  - "Implementation of LAFT and PTEE Systems"
-  - "Tusdatos Empresas Platform"
-  - "Due Diligence"
-  - "Enhanced Due Diligence"
+  - "Background Checks"
+  - "Sanction list screening"
+  - "Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo)"
+  - "PTEE (PTEE – Plan de Transparencia y Ética Empresarial)"
+icon: "/images/validation.svg"
+order: 0
 ---
 
-## Background Validation
-Quick and secure background checks for individuals, companies, and vehicles, helping organizations reduce risk in hiring and business decisions.
+# Validation Services
 
-## Restrictive List Checks and Compliance
-Access to global and local lists, including OFAC, UN, EU sanctions, PEPs, and national databases from Colombia and Ecuador. These checks support compliance with LAFT, KYC, KYB, and AML requirements.
+## Background Checks and Verification
 
-## Deceased Person Validation
-Verifies deceased individuals in official registries to help businesses maintain accurate records, reduce fraud, and manage sensitive legal processes like inheritance and insurance.
+Our comprehensive background verification services help organizations make informed decisions about individuals and entities.
 
-## Implementation of LAFT and PTEE Systems
-Consulting services for companies subject to Colombian and international regulations. Ensures proper implementation of required systems and procedures based on guidance from relevant authorities.
+## Sanction list screening and Compliance
 
-## Tusdatos Empresas Platform
-A business intelligence platform offering public data on Colombian companies. It provides rankings, financial insights, and alerts to support safer and more informed B2B decisions.
+Real-time screening against international sanctions lists, PEP databases, and regulatory blacklists to ensure compliance with global regulations.
 
-## Due Diligence
-A complete evaluation service for counterparties based on public and private data. Enables identification of red flags and mitigation of fraud, corruption, or other commercial risks.
+## Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) and PTEE (PTEE – Plan de Transparencia y Ética Empresarial) Implementation
 
-## Enhanced Due Diligence
-A deeper risk analysis for high-risk clients or operations, such as politically exposed persons (PEPs) or cross-border deals. Includes legal, reputational, and financial checks to ensure compliance and strategic alignment. 
+Expert guidance and implementation of compliance frameworks including Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) and PTEE (PTEE – Plan de Transparencia y Ética Empresarial) systems. 

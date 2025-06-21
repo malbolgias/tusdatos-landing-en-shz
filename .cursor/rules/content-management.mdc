@@ -1,5 +1,36 @@
 ---
-description:
-globs:
+description: 
+globs: 
 alwaysApply: false
 ---
+# Content Management Guide
+
+## Content Structure
+- All content should be placed in `src/content/` using Markdown files
+- Use Astro's content collections for organizing different content types
+- Keep content separate from presentation logic
+- Follow the established content schema for each collection
+
+## Compliance Terminology
+- Always use the full format for compliance frameworks:
+  - Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo)
+  - PTEE (PTEE – Plan de Transparencia y Ética Empresarial)
+- Maintain consistency across all pages and components
+- Use professional, trustworthy language appropriate for compliance services
+
+## Service Descriptions
+- Background Checks: Comprehensive background verification services
+- Sanction list screening: Screening against international sanctions and PEP databases
+- Compliance Services: Implementation of regulatory frameworks and training
+
+## Content Updates
+- Update content in the appropriate markdown files
+- Ensure content aligns with [INFORMATION.md](mdc:../INFORMATION.md)
+- Keep pricing information current and accurate
+- Maintain legal compliance in privacy and terms pages
+
+## Quality Assurance
+- Validate all links and references
+- Ensure content is accessible and clear
+- Check for consistency in terminology
+- Review content for regulatory accuracy

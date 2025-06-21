@@ -1,0 +1,581 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Try to load pricing content
+let pricingData = {
+  title: "Pricing Plans",
+  description: "Choose the plan that best fits your business needs",
+  plans: [
+    {
+      name: "Starter",
+      price: "$99",
+      period: "per month",
+      description: "Perfect for small businesses getting started with compliance",
+      features: [
+        "Background checks (up to 50 checks/month)",
+        "Basic restrictive list screening",
+        "Email support",
+        "Standard reports",
+        "Basic compliance guidance"
+      ],
+      popular: false
+    },
+    {
+      name: "Professional",
+      price: "$299",
+      period: "per month",
+      description: "Ideal for growing businesses with moderate compliance needs",
+      features: [
+        "Background checks (up to 200 checks/month)",
+        "Advanced restrictive list screening",
+        "PEP screening",
+        "Priority email support",
+        "Detailed reports and analytics",
+        "Compliance consultation (2 hours/month)",
+        "LAFT system implementation"
+      ],
+      popular: true
+    },
+    {
+      name: "Enterprise",
+      price: "Custom",
+      period: "contact us",
+      description: "For large organizations with complex compliance requirements",
+      features: [
+        "Unlimited background checks",
+        "Comprehensive screening suite",
+        "Custom integrations",
+        "Dedicated account manager",
+        "24/7 phone support",
+        "Custom reporting",
+        "Full compliance framework implementation",
+        "Training and documentation",
+        "API access"
+      ],
+      popular: false
+    }
+  ]
+};
+
+// Service-specific pricing
+const servicePricing = [
+  {
+    service: "Background Checks",
+    description: "Comprehensive background checks and validation services",
+    plans: [
+      {
+        name: "Basic",
+        price: "$15",
+        period: "per check",
+        description: "Essential background checks for small businesses",
+        features: [
+          "Identity verification",
+          "Basic criminal record check",
+          "Employment verification",
+          "Standard report format",
+          "Email support"
+        ],
+        volume: "1-50 checks/month"
+      },
+      {
+        name: "Professional",
+        price: "$12",
+        period: "per check",
+        description: "Advanced background checks with comprehensive reporting",
+        features: [
+          "All Basic features",
+          "Education verification",
+          "Reference checks",
+          "Financial history check",
+          "Detailed reports",
+          "Priority support"
+        ],
+        volume: "51-200 checks/month"
+      },
+      {
+        name: "Enterprise",
+        price: "$8",
+        period: "per check",
+        description: "Unlimited background checks with custom integrations",
+        features: [
+          "All Professional features",
+          "Custom integrations",
+          "API access",
+          "Dedicated account manager",
+          "Custom reporting",
+          "24/7 support"
+        ],
+        volume: "200+ checks/month"
+      }
+    ]
+  },
+  {
+    service: "Sanction list screening",
+    description: "International sanctions and PEP screening services",
+    plans: [
+      {
+        name: "Basic",
+        price: "50",
+        period: "per check",
+        features: [
+          "OFAC sanctions screening",
+          "PEP screening",
+          "Basic reporting",
+          "Email support"
+        ]
+      },
+      {
+        name: "Professional",
+        price: "35",
+        period: "per check",
+        features: [
+          "All Basic features",
+          "UN sanctions lists",
+          "EU sanctions lists",
+          "Real-time updates",
+          "API access",
+          "Priority support"
+        ]
+      },
+      {
+        name: "Enterprise",
+        price: "25",
+        period: "per check",
+        features: [
+          "All Professional features",
+          "Custom lists integration",
+          "Bulk screening",
+          "Advanced analytics",
+          "Dedicated account manager",
+          "24/7 support"
+        ]
+      }
+    ]
+  },
+  {
+    service: "Compliance Services",
+    description: "Expert guidance and implementation of compliance frameworks",
+    plans: [
+      {
+        name: "Consultation",
+        price: "$150",
+        period: "per hour",
+        description: "Expert compliance consultation and guidance",
+        features: [
+          "Regulatory assessment",
+          "Compliance gap analysis",
+          "Best practices guidance",
+          "Documentation review",
+          "Email support"
+        ],
+        volume: "As needed"
+      },
+      {
+        name: "Implementation",
+        price: "$5,000",
+        period: "one-time",
+        description: "Complete Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo)/PTEE (PTEE – Plan de Transparencia y Ética Empresarial) framework implementation",
+        features: [
+          "All Consultation features",
+          "LAFT system setup",
+          "PTEE framework implementation",
+          "Policy development",
+          "Staff training",
+          "Ongoing support (3 months)"
+        ],
+        volume: "Complete implementation"
+      },
+      {
+        name: "Managed Services",
+        price: "$2,500",
+        period: "per month",
+        description: "Ongoing compliance management and monitoring",
+        features: [
+          "All Implementation features",
+          "Continuous monitoring",
+          "Regular audits",
+          "Policy updates",
+          "Staff training updates",
+          "24/7 compliance support"
+        ],
+        volume: "Ongoing service"
+      }
+    ]
+  },
+  {
+    service: "Tusdatos Empresas Platform",
+    description: "Business intelligence platform for company research and market insights",
+    plans: [
+      {
+        name: "Basic Access",
+        price: "Free",
+        period: "forever",
+        description: "Basic company information and search functionality",
+        features: [
+          "Company search by name or Tax ID (NIT)",
+          "Basic company information",
+          "Top 100 company rankings",
+          "Market trend overview",
+          "Limited search results"
+        ],
+        volume: "Unlimited searches"
+      },
+      {
+        name: "Detailed Reports",
+        price: "COP $50,000",
+        period: "per report",
+        description: "Comprehensive company reports with financial data",
+        features: [
+          "All Basic Access features",
+          "Detailed financial information",
+          "Legal representative data",
+          "Establishment details",
+          "Historical financial data",
+          "Contact information",
+          "Downloadable reports"
+        ],
+        volume: "Per report basis"
+      },
+      {
+        name: "Enterprise Solutions",
+        price: "Custom",
+        period: "monthly",
+        description: "Custom bulk data solutions and API access",
+        features: [
+          "All Detailed Reports features",
+          "Bulk data processing",
+          "API access for integration",
+          "Custom data filtering",
+          "White-label solutions",
+          "Dedicated support",
+          "Custom reporting"
+        ],
+        volume: "Custom volume"
+      }
+    ]
+  }
+];
+
+try {
+  const { getCollection } = await import('astro:content');
+  const pricing = await getCollection('pricing');
+  if (pricing && pricing.length > 0) {
+    // Update pricing data with content from markdown files
+  }
+} catch (error) {
+  console.log('Using fallback content for Pricing page');
+}
+---
+
+<Layout title="Pricing - Tusdatos">
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6">
+          {pricingData.title}
+        </h1>
+        <p class="text-xl mb-8">
+          {pricingData.description}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service-Specific Pricing -->
+  <section class="py-20">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Service-Specific Pricing
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Choose the right plan for each service based on your specific needs and volume requirements.
+        </p>
+      </div>
+
+      {servicePricing.map((service, serviceIndex) => (
+        <div class="mb-20">
+          <div class="text-center mb-12">
+            <h3 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              {service.service}
+            </h3>
+            <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+              {service.description}
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {service.plans.map((plan, planIndex) => (
+              <div class={`relative bg-white rounded-xl shadow-lg p-8 ${planIndex === 1 ? 'ring-2 ring-blue-500 transform scale-105' : ''}`}>
+                {planIndex === 1 && (
+                  <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                    <span class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                      Most Popular
+                    </span>
+                  </div>
+                )}
+                
+                <div class="text-center mb-8">
+                  <h4 class="text-xl font-bold text-gray-900 mb-2">
+                    {plan.name}
+                  </h4>
+                  <div class="mb-4">
+                    <span class="text-3xl font-bold text-gray-900">{plan.price}</span>
+                    <span class="text-gray-600 ml-2">{plan.period}</span>
+                  </div>
+                  <p class="text-gray-600 text-sm mb-2">
+                    {plan.description}
+                  </p>
+                  <p class="text-blue-600 font-semibold text-sm">
+                    {plan.volume}
+                  </p>
+                </div>
+                
+                <ul class="space-y-3 mb-8">
+                  {plan.features.map((feature) => (
+                    <li class="flex items-start text-gray-700 text-sm">
+                      <svg class="w-4 h-4 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1rem; height: 1rem;">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                      </svg>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                
+                <div class="text-center">
+                  <a href="/contact" 
+                     class={`w-full py-3 px-6 rounded-lg font-semibold transition-colors inline-block ${
+                       planIndex === 1 
+                         ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                         : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                     }`}>
+                    Get Started
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Bundled Plans -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Bundled Plans
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Save money with our bundled plans that include multiple services at a discounted rate.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {pricingData.plans.map((plan, index) => (
+          <div class={`relative bg-white rounded-xl shadow-lg p-8 ${plan.popular ? 'ring-2 ring-blue-500 transform scale-105' : ''}`}>
+            {plan.popular && (
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  Most Popular
+                </span>
+              </div>
+            )}
+            
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                {plan.name}
+              </h3>
+              <div class="mb-4">
+                <span class="text-4xl font-bold text-gray-900">{plan.price}</span>
+                <span class="text-gray-600 ml-2">{plan.period}</span>
+              </div>
+              <p class="text-gray-600">
+                {plan.description}
+              </p>
+            </div>
+            
+            <ul class="space-y-4 mb-8">
+              {plan.features.map((feature) => (
+                <li class="flex items-center text-gray-700">
+                  <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            <div class="text-center">
+              {plan.name === "Enterprise" ? (
+                <a href="/contact" 
+                   class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block">
+                  Contact Sales
+                </a>
+              ) : (
+                <a href="/contact" 
+                   class={`w-full py-3 px-6 rounded-lg font-semibold transition-colors inline-block ${
+                     plan.popular 
+                       ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                   }`}>
+                  Get Started
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tusdatos Empresas Platform -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Tusdatos Empresas Platform
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Access comprehensive company data, rankings, and market insights for informed B2B decisions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {pricingData.plans.map((plan, index) => (
+          <div class={`relative bg-white rounded-xl shadow-lg p-8 ${plan.popular ? 'ring-2 ring-blue-500 transform scale-105' : ''}`}>
+            {plan.popular && (
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  Most Popular
+                </span>
+              </div>
+            )}
+            
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                {plan.name}
+              </h3>
+              <div class="mb-4">
+                <span class="text-4xl font-bold text-gray-900">{plan.price}</span>
+                <span class="text-gray-600 ml-2">{plan.period}</span>
+              </div>
+              <p class="text-gray-600">
+                {plan.description}
+              </p>
+            </div>
+            
+            <ul class="space-y-4 mb-8">
+              {plan.features.map((feature) => (
+                <li class="flex items-center text-gray-700">
+                  <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            <div class="text-center">
+              {plan.name === "Enterprise" ? (
+                <a href="/contact" 
+                   class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors inline-block">
+                  Contact Sales
+                </a>
+              ) : (
+                <a href="/contact" 
+                   class={`w-full py-3 px-6 rounded-lg font-semibold transition-colors inline-block ${
+                     plan.popular 
+                       ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                       : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                   }`}>
+                  Get Started
+                </a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-white py-20">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+          Frequently Asked Questions
+        </h2>
+        
+        <div class="space-y-8">
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Can I mix and match services from different plans?
+            </h3>
+            <p class="text-gray-600">
+              Yes, you can choose different tiers for each service based on your specific needs. Contact our sales team for custom pricing.
+            </p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Do you offer volume discounts?
+            </h3>
+            <p class="text-gray-600">
+              Yes, we offer significant discounts for high-volume usage. Enterprise plans include custom pricing based on your requirements.
+            </p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              What's included in the compliance consultation?
+            </h3>
+            <p class="text-gray-600">
+              Our compliance consultation includes expert guidance on regulatory requirements, best practices, and implementation strategies for your specific industry.
+            </p>
+          </div>
+          
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Is there a setup fee?
+            </h3>
+            <p class="text-gray-600">
+              No setup fees for most plans. Enterprise plans may include implementation costs depending on your requirements.
+            </p>
+          </div>
+
+          <div class="bg-gray-50 rounded-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-900 mb-3">
+              Can I change my plan at any time?
+            </h3>
+            <p class="text-gray-600">
+              Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        Ready to Get Started?
+      </h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Contact our team to discuss your specific needs and find the perfect plan for your business.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          Contact Sales
+        </a>
+        <a href="/services" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold border border-blue-600 hover:bg-blue-50 transition-colors">
+          Learn More
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout> 

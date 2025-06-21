@@ -1,0 +1,103 @@
+---
+import { getCollection } from 'astro:content';
+
+// Get services with error handling
+let services = [];
+try {
+  services = await getCollection('services');
+} catch (error) {
+  console.log('Services collection not found, using fallback data');
+  // Fallback services data
+  services = [
+    {
+      id: 'background-checks',
+      slug: 'background-checks',
+      data: {
+        title: 'Background Checks',
+        description: 'Comprehensive background verification services',
+        features: ['Identity verification', 'Criminal record checks', 'Employment verification'],
+        icon: '/images/background-check.svg'
+      }
+    },
+    {
+      id: 'sanctions-screening',
+      slug: 'sanctions-screening',
+      data: {
+        title: 'Sanction list screening',
+        description: 'Screen against international sanctions lists',
+        features: ['OFAC sanctions screening', 'PEP screening', 'Real-time updates'],
+        icon: '/images/sanctions-check.svg'
+      }
+    },
+    {
+      id: 'compliance-services',
+      slug: 'compliance-services',
+      data: {
+        title: 'Compliance Services',
+        description: 'Expert guidance and implementation of compliance frameworks',
+        features: ['AML/CTF implementation', 'PTEE framework', 'Training & documentation'],
+        icon: '/images/compliance.svg'
+      }
+    },
+    {
+      id: 'empresas-platform',
+      slug: 'empresas-platform',
+      data: {
+        title: 'Tusdatos Empresas Platform',
+        description: 'Business intelligence platform for company research',
+        features: ['Company search', 'Financial data', 'Market insights'],
+        icon: '/images/empresas-platform.svg'
+      }
+    }
+  ];
+}
+---
+
+<section class="py-20 bg-white" id="services">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16 scroll-animate">
+      <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 animate-float">
+        <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+        </svg>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        Our Services
+      </h2>
+      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+        Comprehensive validation and compliance solutions tailored for Colombian businesses
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {services.map((service, index) => (
+        <div class="group bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 interactive-card scroll-animate animate-stagger-{index + 1}">
+          <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 hover-rotate">
+              <img src={service.data.icon} alt={service.data.title} class="w-8 h-8" />
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{service.data.title}</h3>
+            <p class="text-gray-600 text-sm">{service.data.description}</p>
+          </div>
+          
+          <div class="space-y-3 mb-6">
+            {service.data.features?.slice(0, 3).map((feature) => (
+              <div class="flex items-center text-gray-700">
+                <svg class="w-4 h-4 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-sm">{typeof feature === 'string' ? feature : feature.title}</span>
+              </div>
+            ))}
+          </div>
+          
+          <div class="text-center">
+            <a href={`/services/${service.slug}`} class="text-blue-600 font-semibold hover:text-blue-700 transition-colors text-sm">
+              Learn More →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section> 

@@ -3,7 +3,7 @@ plan: "Compliance Plans"
 price: "From COP $580,000"
 features:
   - "Due diligence regulations compliance"
-  - "LAFT compliance"
+  - "Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) compliance"
   - "PTEE compliance"
   - "AML compliance"
   - "Online validations"

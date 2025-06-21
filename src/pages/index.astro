@@ -1,11 +1,500 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import InteractiveCounter from '../components/InteractiveCounter.astro';
+import InteractiveButton from '../components/InteractiveButton.astro';
+import { getCollection } from 'astro:content';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+// Fetch content from collections with error handling
+let services = [];
+let company = [];
+let contact = [];
+
+try {
+  services = await getCollection('services');
+} catch (error) {
+  console.log('Services collection not found');
+}
+
+try {
+  company = await getCollection('company');
+} catch (error) {
+  console.log('Company collection not found');
+}
+
+try {
+  contact = await getCollection('contact');
+} catch (error) {
+  console.log('Contact collection not found');
+}
+
+// Get the first (and only) company info entry
+const companyData = company[0]?.data;
+const contactData = contact[0]?.data;
+
+// Additional data for enhanced landing page
+const testimonials = [
+  {
+    name: "María González",
+    position: "Compliance Director",
+    company: "Banco Nacional",
+    content: "Tusdatos has transformed our compliance process. Their background validation services are thorough and reliable, helping us maintain the highest standards of due diligence.",
+    rating: 5
+  },
+  {
+    name: "Carlos Rodríguez",
+    position: "CEO",
+    company: "TechStart Colombia",
+    content: "The sanction list screening has been invaluable for our international expansion. Tusdatos provides the peace of mind we need when entering new markets.",
+    rating: 5
+  },
+  {
+    name: "Ana Martínez",
+    position: "Risk Manager",
+    company: "Inversiones Seguras",
+    content: "Their Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) implementation was seamless and their ongoing support is exceptional. We've seen a 40% reduction in compliance-related issues since partnering with them.",
+    rating: 5
+  }
+];
+
+const stats = [
+  { target: 500, label: "Clients Served", suffix: "+" },
+  { target: 50000, label: "Validations Completed", suffix: "+" },
+  { target: 99.9, label: "Accuracy Rate", suffix: "%" },
+  { target: 24, label: "Support Available", suffix: "/7" }
+];
+
+const news = [
+  {
+    title: "New Regulatory Requirements for Colombian Financial Institutions",
+    excerpt: "Recent updates to Colombian financial regulations require enhanced due diligence processes. Learn how Tusdatos can help your organization stay compliant.",
+    date: "June 15, 2024",
+    category: "Regulatory Updates"
+  },
+  {
+    title: "Tusdatos Launches Enhanced PEP Screening Service",
+    excerpt: "Our new Politically Exposed Persons screening service provides real-time monitoring and comprehensive risk assessment for high-risk individuals.",
+    date: "June 10, 2024",
+    category: "Product Updates"
+  },
+  {
+    title: "Industry Recognition: Best Compliance Solution 2024",
+    excerpt: "Tusdatos has been recognized as the leading compliance solution provider in Latin America by the Financial Technology Association.",
+    date: "June 5, 2024",
+    category: "Company News"
+  }
+];
+
+const partners = [
+  "Banco de Bogotá",
+  "Grupo Aval",
+  "Bancolombia",
+  "Davivienda",
+  "BBVA Colombia",
+  "Scotiabank Colpatria"
+];
+
+const tusdatosEmpresasPlatform = {
+  title: "Tusdatos Empresas Platform",
+  description: "Comprehensive business intelligence platform providing detailed company data, rankings, and market insights for informed B2B decisions.",
+  icon: "chart-bar",
+  features: [
+    "Company search by name or Tax ID (NIT)",
+    "Top 100 company rankings by revenue and employees",
+    "Free basic company information",
+    "Paid detailed reports with financial data",
+    "Custom data solutions and bulk reports",
+    "Market trend analysis and charts"
+  ],
+  url: "https://empresas.tusdatos.co"
+};
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Tusdatos - Your Strategic Ally in Validation and Compliance">
+	<Hero />
+	<Services />
+
+	<!-- Statistics Section -->
+	<section class="py-20 bg-blue-600 text-white">
+		<div class="container mx-auto px-4">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+				<InteractiveCounter target={500} label="Clients Served" suffix="+" />
+				<InteractiveCounter target={50000} label="Validations Completed" suffix="+" />
+				<InteractiveCounter target={99.9} label="Accuracy Rate" suffix="%" />
+				<InteractiveCounter target={24} label="Support Available" suffix="/7" />
+			</div>
+		</div>
+	</section>
+
+	<!-- Detailed Services Section -->
+	<section class="py-20 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-16 scroll-animate">
+				<div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 animate-float">
+					<svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+					</svg>
+				</div>
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+					Comprehensive Validation Solutions
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Our suite of services is designed to meet all your compliance and validation needs, from basic background checks to complex regulatory frameworks.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+				<!-- Background Checks -->
+				<div class="group bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 interactive-card scroll-animate animate-stagger-1">
+					<div class="text-center mb-6">
+						<img src="/images/background-check.svg" alt="Background Checks" class="w-20 h-20 mx-auto group-hover:scale-110 transition-transform duration-300 hover-rotate" />
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Background Checks</h3>
+					<p class="text-gray-600 mb-6 text-center">
+						Comprehensive background checks including identity verification, criminal records, employment history, and education verification.
+					</p>
+					<ul class="space-y-3 mb-6">
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							Identity verification
+						</li>
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							Criminal record checks
+						</li>
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							Employment verification
+						</li>
+					</ul>
+					<div class="text-center">
+						<a href="/services" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+							Learn More →
+						</a>
+					</div>
+				</div>
+
+				<!-- Sanction list screening -->
+				<div class="group bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 interactive-card scroll-animate animate-stagger-2">
+					<div class="text-center mb-6">
+						<img src="/images/sanctions-check.svg" alt="Sanction list screening" class="w-20 h-20 mx-auto group-hover:scale-110 transition-transform duration-300 hover-rotate" />
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Sanction list screening</h3>
+					<p class="text-gray-600 mb-6 text-center">
+						Screen individuals and entities against international sanctions lists, PEP databases, and regulatory blacklists.
+					</p>
+					<ul class="space-y-3 mb-6">
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							OFAC sanctions screening
+						</li>
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							PEP screening
+						</li>
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							Real-time updates
+						</li>
+					</ul>
+					<div class="text-center">
+						<a href="/services" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+							Learn More →
+						</a>
+					</div>
+				</div>
+
+				<!-- Compliance Services -->
+				<div class="group bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 interactive-card scroll-animate animate-stagger-3">
+					<div class="text-center mb-6">
+						<img src="/images/compliance.svg" alt="Compliance Services" class="w-20 h-20 mx-auto group-hover:scale-110 transition-transform duration-300 hover-rotate" />
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Compliance Services</h3>
+					<p class="text-gray-600 mb-6 text-center">
+						Expert guidance and implementation of compliance frameworks including Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) and PTEE (PTEE – Plan de Transparencia y Ética Empresarial) systems.
+					</p>
+					<ul class="space-y-3 mb-6">
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) implementation
+						</li>
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							PTEE (Plan de Transparencia y Ética Empresarial) framework
+						</li>
+						<li class="flex items-center text-gray-700">
+							<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+							</svg>
+							Training & documentation
+						</li>
+					</ul>
+					<div class="text-center">
+						<a href="/services" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+							Learn More →
+						</a>
+					</div>
+				</div>
+
+				<!-- Tusdatos Empresas Platform -->
+				<div class="group bg-white rounded-xl shadow-lg p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 interactive-card scroll-animate animate-stagger-4">
+					<div class="text-center mb-6">
+						<img src="/images/empresas-platform.svg" alt="Tusdatos Empresas Platform" class="w-20 h-20 mx-auto group-hover:scale-110 transition-transform duration-300 hover-rotate" />
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Tusdatos Empresas Platform</h3>
+					<p class="text-gray-600 mb-6 text-center">
+						{tusdatosEmpresasPlatform.description}
+					</p>
+					<ul class="space-y-3 mb-6">
+						{tusdatosEmpresasPlatform.features.map((feature) => (
+							<li class="flex items-center text-gray-700">
+								<svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+									<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+								</svg>
+								{feature}
+							</li>
+						))}
+					</ul>
+					<div class="text-center">
+						<a href={tusdatosEmpresasPlatform.url} target="_blank" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+							Learn More →
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Testimonials Section -->
+	<section class="py-20 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-16 scroll-animate">
+				<div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 animate-float">
+					<svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+						<path d="M8 12.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+						<path d="M12 12.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0-2a6 6 0 100-12 6 6 0 000 12z" clip-rule="evenodd"></path>
+					</svg>
+				</div>
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+					What Our Clients Say
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Trusted by leading financial institutions and businesses across Colombia and Latin America.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{testimonials.map((testimonial, index) => (
+					<div class="group bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-2 interactive-card scroll-animate animate-stagger-{index + 1}">
+						<div class="flex mb-4">
+							{[...Array(testimonial.rating)].map(() => (
+								<svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+								</svg>
+							))}
+						</div>
+						<p class="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
+						<div class="flex items-center">
+							<div class="w-12 h-12 rounded-full overflow-hidden mr-4 hover-scale transition-transform">
+								<img 
+									src={index === 0 ? "/images/photos/business-presentation.jpg" : 
+										 index === 1 ? "/images/photos/office-meeting.jpg" : 
+										 "/images/photos/team-collaboration.jpg"} 
+									alt={testimonial.name}
+									class="w-full h-full object-cover"
+								/>
+							</div>
+							<div>
+								<div class="font-semibold text-gray-900">{testimonial.name}</div>
+								<div class="text-gray-600">{testimonial.position}, {testimonial.company}</div>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Partners/Trusted By Section -->
+	<section class="py-20 bg-gray-50">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-12 scroll-animate">
+				<h2 class="text-3xl font-bold text-gray-900 mb-4">
+					Trusted by Leading Institutions
+				</h2>
+				<p class="text-xl text-gray-600">
+					We work with the most respected financial institutions in Colombia
+				</p>
+			</div>
+			
+			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+				{partners.map((partner, index) => (
+					<div class="text-center scroll-animate animate-stagger-{index + 1}">
+						<div class="text-gray-400 font-semibold text-lg hover:text-blue-600 transition-colors">{partner}</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- News & Updates Section -->
+	<section class="py-20 bg-white">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-16 scroll-animate">
+				<div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 animate-float">
+					<svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"></path>
+					</svg>
+				</div>
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+					Latest News & Updates
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Stay informed about regulatory changes, product updates, and industry insights.
+				</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				{news.map((article, index) => (
+					<div class="group bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 interactive-card scroll-animate animate-stagger-{index + 1}">
+						<div class="h-48 overflow-hidden">
+							<img 
+								src={index === 0 ? "/images/photos/security-compliance.jpg" : 
+									 index === 1 ? "/images/photos/digital-security.jpg" : 
+									 "/images/photos/business-analysis.jpg"} 
+								alt={article.title}
+								class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+							/>
+						</div>
+						<div class="p-6">
+							<div class="text-sm text-blue-600 font-semibold mb-2">{article.category}</div>
+							<h3 class="text-xl font-bold text-gray-900 mb-3">{article.title}</h3>
+							<p class="text-gray-600 mb-4">{article.excerpt}</p>
+							<div class="flex justify-between items-center">
+								<span class="text-sm text-gray-500">{article.date}</span>
+								<a href="#" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+									Read More →
+								</a>
+							</div>
+						</div>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<!-- Visual Gallery Section -->
+	<section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+		<div class="container mx-auto px-4">
+			<div class="text-center mb-16">
+				<div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+					<svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
+					</svg>
+				</div>
+				<h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+					Our Work Environment
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					See how our team collaborates to deliver exceptional compliance and validation services
+				</p>
+			</div>
+
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/business-team.jpg" alt="Team Collaboration" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Team Collaboration</span>
+					</div>
+				</div>
+				
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/office-meeting.jpg" alt="Strategic Meetings" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Strategic Planning</span>
+					</div>
+				</div>
+				
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/business-presentation.jpg" alt="Client Presentations" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Client Presentations</span>
+					</div>
+				</div>
+				
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/team-collaboration.jpg" alt="Expert Consultation" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Expert Consultation</span>
+					</div>
+				</div>
+				
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/business-consultation.jpg" alt="Business Analysis" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Business Analysis</span>
+					</div>
+				</div>
+				
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/security-compliance.jpg" alt="Security Focus" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Security Focus</span>
+					</div>
+				</div>
+				
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/digital-security.jpg" alt="Digital Innovation" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Digital Innovation</span>
+					</div>
+				</div>
+				
+				<div class="group relative overflow-hidden rounded-xl shadow-lg">
+					<img src="/images/photos/business-analysis.jpg" alt="Data Analysis" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300" />
+					<div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+						<span class="text-white font-semibold text-center px-4">Data Analysis</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Final CTA Section -->
+	<section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+		<div class="container mx-auto px-4 text-center">
+			<h2 class="text-3xl md:text-4xl font-bold mb-6">
+				Ready to Transform Your Compliance Process?
+			</h2>
+			<p class="text-xl mb-8 max-w-3xl mx-auto">
+				Join hundreds of organizations that trust Tusdatos for their validation and compliance needs. Get started today and experience the difference.
+			</p>
+			<div class="flex flex-col sm:flex-row gap-4 justify-center">
+				<a href="/contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 btn-animate btn-ripple hover-lift">
+					Contact Us
+				</a>
+				<a href="/services" class="border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 hover-lift">
+					View All Services
+				</a>
+			</div>
+		</div>
+	</section>
 </Layout>

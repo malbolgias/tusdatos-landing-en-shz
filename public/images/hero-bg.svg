@@ -1,0 +1,47 @@
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e40af;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1e3a8a;stop-opacity:1" />
+    </linearGradient>
+    <radialGradient id="radial1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.1" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="600" fill="url(#grad1)"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="80" fill="url(#radial1)" opacity="0.3"/>
+  <circle cx="1100" cy="150" r="60" fill="url(#radial1)" opacity="0.2"/>
+  <circle cx="200" cy="500" r="100" fill="url(#radial1)" opacity="0.25"/>
+  <circle cx="1000" cy="450" r="70" fill="url(#radial1)" opacity="0.15"/>
+  
+  <!-- Abstract shapes -->
+  <path d="M 50 200 Q 150 150 250 200 T 450 200" stroke="white" stroke-width="2" fill="none" opacity="0.1"/>
+  <path d="M 750 300 Q 850 250 950 300 T 1150 300" stroke="white" stroke-width="2" fill="none" opacity="0.1"/>
+  
+  <!-- Grid pattern -->
+  <g opacity="0.05">
+    <line x1="0" y1="100" x2="1200" y2="100" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="200" x2="1200" y2="200" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="300" x2="1200" y2="300" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="400" x2="1200" y2="400" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="500" x2="1200" y2="500" stroke="white" stroke-width="1"/>
+    
+    <line x1="100" y1="0" x2="100" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="200" y1="0" x2="200" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="300" y1="0" x2="300" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="400" y1="0" x2="400" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="500" y1="0" x2="500" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="600" y1="0" x2="600" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="700" y1="0" x2="700" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="800" y1="0" x2="800" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="900" y1="0" x2="900" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="1000" y1="0" x2="1000" y2="600" stroke="white" stroke-width="1"/>
+    <line x1="1100" y1="0" x2="1100" y2="600" stroke="white" stroke-width="1"/>
+  </g>
+</svg> 

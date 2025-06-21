@@ -1,0 +1,64 @@
+---
+interface Props {
+  target: number;
+  label: string;
+  suffix?: string;
+  duration?: number;
+}
+
+const { target, label, suffix = "", duration = 2000 } = Astro.props;
+---
+
+<div class="text-center scroll-animate">
+  <div class="text-4xl md:text-5xl font-bold mb-2 counter-display" data-target={target} data-suffix={suffix} data-duration={duration}>
+    0{suffix}
+  </div>
+  <div class="text-blue-100">{label}</div>
+</div>
+
+<script>
+  class Counter {
+    constructor(element) {
+      this.element = element;
+      this.target = parseInt(element.dataset.target);
+      this.suffix = element.dataset.suffix || '';
+      this.duration = parseInt(element.dataset.duration) || 2000;
+      this.start = 0;
+      this.increment = this.target / (this.duration / 16);
+      this.current = 0;
+      this.isAnimating = false;
+    }
+
+    startAnimation() {
+      if (this.isAnimating) return;
+      this.isAnimating = true;
+      this.animate();
+    }
+
+    animate() {
+      this.current += this.increment;
+      if (this.current < this.target) {
+        this.element.textContent = Math.floor(this.current) + this.suffix;
+        requestAnimationFrame(() => this.animate());
+      } else {
+        this.element.textContent = this.target + this.suffix;
+        this.isAnimating = false;
+      }
+    }
+  }
+
+  // Initialize counters when they come into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counter = new Counter(entry.target);
+        counter.startAnimation();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter-display').forEach(counter => {
+    observer.observe(counter);
+  });
+</script> 

@@ -1,0 +1,187 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InteractiveForm from '../components/InteractiveForm.astro';
+
+// Try to load contact content
+let contactData = {
+  title: "Contact Us",
+  description: "Get in touch with our team to learn more about our services",
+  departments: [
+    {
+      name: "Sales",
+      email: "comercial@tusdatos.co",
+      phone: "+57 305 436 2276",
+      description: "For inquiries about our services and pricing"
+    },
+    {
+      name: "Support",
+      email: "soporte@tusdatos.co",
+      phone: "+57 305 436 2276",
+      description: "For technical support and assistance"
+    }
+  ],
+  address: "Bogotá, Colombia",
+  hours: "Monday - Friday: 8:00 AM - 6:00 PM (GMT-5)"
+};
+
+try {
+  const { getCollection } = await import('astro:content');
+  const contact = await getCollection('contact');
+  if (contact && contact.length > 0) {
+    // Update contact data with content from markdown files
+  }
+} catch (error) {
+  console.log('Using fallback content for Contact page');
+}
+---
+
+<Layout title="Contact - Tusdatos">
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 backdrop-blur-sm">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+          </svg>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Get in Touch
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 opacity-90">
+          Ready to transform your compliance process? Let's discuss how we can help your business.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Content -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <!-- Contact Form -->
+        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <div class="mb-8">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Send us a Message</h2>
+            <p class="text-gray-600">
+              Fill out the form below and we'll get back to you within 24 hours.
+            </p>
+          </div>
+
+          <InteractiveForm />
+        </div>
+
+        <!-- Contact Information -->
+        <div class="space-y-8">
+          <div>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">Contact Information</h2>
+            <p class="text-gray-600 mb-8">
+              We're here to help you navigate the complex world of compliance and validation. Reach out to us through any of the channels below.
+            </p>
+          </div>
+
+          <!-- Contact Methods -->
+          <div class="space-y-6">
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Office Address</h3>
+                <p class="text-gray-600">
+                  Calle 123 #45-67<br>
+                  Bogotá, Colombia<br>
+                  Postal Code: 110111
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
+                <p class="text-gray-600">
+                  +57 (1) 234-5678<br>
+                  +57 300-123-4567
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
+                <p class="text-gray-600">
+                  info@tusdatos.com<br>
+                  support@tusdatos.com
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-4">
+              <div class="flex-shrink-0">
+                <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Business Hours</h3>
+                <p class="text-gray-600">
+                  Monday - Friday: 8:00 AM - 6:00 PM<br>
+                  Saturday: 9:00 AM - 1:00 PM<br>
+                  Sunday: Closed
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Team Image -->
+          <div class="mt-12">
+            <div class="relative rounded-2xl overflow-hidden shadow-lg">
+              <img src="/images/photos/business-team.jpg" alt="Our Team" class="w-full h-64 object-cover" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <div class="absolute bottom-6 left-6 text-white">
+                <h3 class="text-xl font-bold mb-2">Our Expert Team</h3>
+                <p class="text-lg opacity-90">Ready to assist you with all your compliance needs</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+</style> 

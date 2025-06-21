@@ -1,0 +1,46 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background circle -->
+  <circle cx="60" cy="60" r="55" fill="url(#gradient1)" stroke="url(#gradient2)" stroke-width="2"/>
+  
+  <!-- Building/Company icon -->
+  <path d="M30 80V45L45 35L60 45V80H30Z" fill="white" opacity="0.9"/>
+  <path d="M60 80V45L75 35L90 45V80H60Z" fill="white" opacity="0.7"/>
+  
+  <!-- Windows -->
+  <rect x="35" y="50" width="8" height="8" fill="#3B82F6" opacity="0.8"/>
+  <rect x="47" y="50" width="8" height="8" fill="#3B82F6" opacity="0.8"/>
+  <rect x="35" y="62" width="8" height="8" fill="#3B82F6" opacity="0.8"/>
+  <rect x="47" y="62" width="8" height="8" fill="#3B82F6" opacity="0.8"/>
+  
+  <rect x="65" y="50" width="8" height="8" fill="#10B981" opacity="0.8"/>
+  <rect x="77" y="50" width="8" height="8" fill="#10B981" opacity="0.8"/>
+  <rect x="65" y="62" width="8" height="8" fill="#10B981" opacity="0.8"/>
+  <rect x="77" y="62" width="8" height="8" fill="#10B981" opacity="0.8"/>
+  
+  <!-- Data/Chart elements -->
+  <path d="M25 25L35 20L45 30L55 15L65 25L75 10L85 20" stroke="#F59E0B" stroke-width="3" fill="none" stroke-linecap="round"/>
+  
+  <!-- Search magnifying glass -->
+  <circle cx="85" cy="85" r="8" fill="none" stroke="#EF4444" stroke-width="2"/>
+  <path d="M91 91L95 95" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Data points -->
+  <circle cx="35" cy="20" r="2" fill="#F59E0B"/>
+  <circle cx="45" cy="30" r="2" fill="#F59E0B"/>
+  <circle cx="55" cy="15" r="2" fill="#F59E0B"/>
+  <circle cx="65" cy="25" r="2" fill="#F59E0B"/>
+  <circle cx="75" cy="10" r="2" fill="#F59E0B"/>
+  <circle cx="85" cy="20" r="2" fill="#F59E0B"/>
+  
+  <!-- Gradients -->
+  <defs>
+    <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3B82F6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EF4444;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+</svg> 

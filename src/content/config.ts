@@ -15,6 +15,16 @@ const services = defineCollection({
     title: z.string(),
     description: z.string(),
     features: z.array(z.string()),
+    icon: z.string().optional(),
+    order: z.number().optional(),
+    subtitle: z.string().optional(),
+    longDescription: z.string().optional(),
+    image: z.string().optional(),
+    benefits: z.array(z.string()).optional(),
+    useCases: z.array(z.string()).optional(),
+    process: z.array(z.string()).optional(),
+    pricing: z.array(z.string()).optional(),
+    url: z.string().optional(),
   })
 });
 

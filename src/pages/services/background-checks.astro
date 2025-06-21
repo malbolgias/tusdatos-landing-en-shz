@@ -1,0 +1,514 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const serviceData = {
+  title: "Background Checks",
+  subtitle: "Comprehensive Due Diligence Solutions",
+  heroDescription: "Thorough background verification services for individuals and entities to help you make informed business decisions and maintain compliance with regulatory requirements.",
+  heroImage: "/images/photos/security-compliance.jpg",
+  icon: "/images/background-check.svg",
+  url: "/services/background-checks"
+};
+
+const features = [
+  {
+    title: "Identity Verification",
+    description: "Multi-source identity verification including government databases, biometric checks, and document validation.",
+    icon: "fingerprint"
+  },
+  {
+    title: "Criminal Record Checks",
+    description: "Comprehensive criminal background checks across multiple jurisdictions and databases.",
+    icon: "shield"
+  },
+  {
+    title: "Employment History Validation",
+    description: "Verification of employment history, positions held, and performance records.",
+    icon: "briefcase"
+  },
+  {
+    title: "Education Verification",
+    description: "Confirmation of educational credentials, degrees, and certifications.",
+    icon: "academic-cap"
+  },
+  {
+    title: "Reference Checks",
+    description: "Professional reference verification and character assessments.",
+    icon: "users"
+  },
+  {
+    title: "Financial History",
+    description: "Credit history checks and financial stability assessments.",
+    icon: "currency-dollar"
+  }
+];
+
+const benefits = [
+  "Reduce hiring risks and improve decision-making",
+  "Ensure regulatory compliance",
+  "Protect your organization's reputation",
+  "Streamline the validation process",
+  "Access to comprehensive databases"
+];
+
+const useCases = [
+  "Employee hiring and onboarding",
+  "Business partner verification",
+  "Vendor and supplier screening",
+  "Board member and executive validation",
+  "Contractor and consultant verification"
+];
+
+const process = [
+  "Initial consultation and requirements assessment",
+  "Data collection and authorization",
+  "Multi-source verification process",
+  "Comprehensive report generation",
+  "Ongoing monitoring and updates"
+];
+
+const testimonials = [
+  {
+    name: "María González",
+    position: "HR Director",
+    company: "Banco Nacional",
+    content: "Tusdatos background checks have transformed our hiring process. The comprehensive reports help us make confident decisions and maintain the highest standards of due diligence.",
+    rating: 5,
+    image: "/images/photos/business-presentation.jpg"
+  },
+  {
+    name: "Carlos Rodríguez",
+    position: "CEO",
+    company: "TechStart Colombia",
+    content: "The thoroughness of their background verification services gives us peace of mind when bringing new team members on board. Highly recommended for any growing company.",
+    rating: 5,
+    image: "/images/photos/office-meeting.jpg"
+  },
+  {
+    name: "Ana Martínez",
+    position: "Risk Manager",
+    company: "Inversiones Seguras",
+    content: "We've seen a 40% reduction in hiring-related issues since implementing Tusdatos background checks. Their reports are detailed and actionable.",
+    rating: 5,
+    image: "/images/photos/team-collaboration.jpg"
+  }
+];
+
+const stats = [
+  { number: "50,000+", label: "Background Checks Completed" },
+  { number: "99.9%", label: "Accuracy Rate" },
+  { number: "24-48", label: "Hours Turnaround" },
+  { number: "300+", label: "Data Sources" }
+];
+
+const faqs = [
+  {
+    question: "How long does a background check take?",
+    answer: "Most background checks are completed within 24-48 hours. Complex cases involving multiple jurisdictions may take 3-5 business days."
+  },
+  {
+    question: "What information is included in a background check?",
+    answer: "Our comprehensive background checks include identity verification, criminal records, employment history, education verification, reference checks, and financial history."
+  },
+  {
+    question: "Is consent required for background checks?",
+    answer: "Yes, written consent is required from the individual before conducting any background check, in compliance with Colombian privacy laws."
+  },
+  {
+    question: "Can you conduct international background checks?",
+    answer: "Yes, we have access to international databases and can conduct background checks in multiple countries, subject to local regulations."
+  },
+  {
+    question: "What if negative information is found?",
+    answer: "We provide detailed reports with all findings. It's up to your organization to make the final decision based on your policies and requirements."
+  },
+  {
+    question: "Do you offer ongoing monitoring services?",
+    answer: "Yes, we offer continuous monitoring services to alert you to any changes in an individual's background that may affect their suitability."
+  }
+];
+
+const pricing = [
+  {
+    name: "Basic Check",
+    price: "$15",
+    period: "per check",
+    description: "Essential background verification for small businesses",
+    features: [
+      "Identity verification",
+      "Basic criminal record check",
+      "Employment verification",
+      "Standard report format",
+      "Email support"
+    ],
+    popular: false
+  },
+  {
+    name: "Professional Check",
+    price: "$25",
+    period: "per check",
+    description: "Comprehensive background check with detailed reporting",
+    features: [
+      "All Basic features",
+      "Education verification",
+      "Reference checks",
+      "Financial history check",
+      "Detailed reports",
+      "Priority support"
+    ],
+    popular: true
+  },
+  {
+    name: "Executive Check",
+    price: "$50",
+    period: "per check",
+    description: "In-depth verification for senior positions",
+    features: [
+      "All Professional features",
+      "International checks",
+      "Media screening",
+      "Social media analysis",
+      "Custom reporting",
+      "Dedicated account manager"
+    ],
+    popular: false
+  }
+];
+---
+
+<Layout title="Background Checks - Comprehensive Due Diligence Solutions | Tusdatos">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20">
+    <div class="absolute inset-0 bg-black opacity-20"></div>
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <div class="flex items-center mb-6">
+            <img src={serviceData.icon} alt="Background Checks Icon" class="w-12 h-12 mr-4" />
+            <span class="text-blue-200 font-semibold">Background Checks</span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            Comprehensive Background Verification Services
+          </h1>
+          <p class="text-xl text-blue-100 mb-8">
+            {serviceData.heroDescription}
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-center">
+              Get Started
+            </a>
+            <a href="#pricing" class="border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors text-center">
+              View Pricing
+            </a>
+          </div>
+        </div>
+        <div class="relative">
+          <img src={serviceData.heroImage} alt="Background Checks" class="rounded-2xl shadow-2xl" />
+          <div class="absolute -bottom-6 -left-6 bg-white rounded-lg p-4 shadow-lg">
+            <div class="text-2xl font-bold text-blue-600">50,000+</div>
+            <div class="text-gray-600">Checks Completed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        {stats.map((stat) => (
+          <div>
+            <div class="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.number}</div>
+            <div class="text-gray-600">{stat.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Comprehensive Verification Features
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Our background check services cover all aspects of due diligence to ensure you have complete information for informed decision-making.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {features.map((feature) => (
+          <div class="bg-white rounded-xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow">
+            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+              <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
+            <p class="text-gray-600">{feature.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+            Why Choose Our Background Check Services?
+          </h2>
+          <ul class="space-y-4">
+            {benefits.map((benefit) => (
+              <li class="flex items-start">
+                <svg class="w-6 h-6 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+                <span class="text-lg text-gray-700">{benefit}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 class="text-2xl font-bold text-gray-900 mb-6">Use Cases</h3>
+          <div class="space-y-4">
+            {useCases.map((useCase) => (
+              <div class="flex items-center p-4 bg-gray-50 rounded-lg">
+                <div class="w-3 h-3 bg-blue-600 rounded-full mr-4"></div>
+                <span class="text-gray-700">{useCase}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Our Background Check Process
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          A streamlined process designed to deliver comprehensive results quickly and efficiently.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        {process.map((step, index) => (
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">
+              {index + 1}
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Step {index + 1}</h3>
+            <p class="text-gray-600">{step}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          What Our Clients Say
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Trusted by leading companies across Colombia for their background verification needs.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <div class="bg-white rounded-xl p-8 shadow-lg">
+            <div class="flex mb-4">
+              {[...Array(testimonial.rating)].map(() => (
+                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              ))}
+            </div>
+            <p class="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
+            <div class="flex items-center">
+              <div class="w-12 h-12 rounded-full overflow-hidden mr-4">
+                <img src={testimonial.image} alt={testimonial.name} class="w-full h-full object-cover" />
+              </div>
+              <div>
+                <div class="font-semibold text-gray-900">{testimonial.name}</div>
+                <div class="text-gray-600">{testimonial.position}, {testimonial.company}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Background Check Pricing
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Choose the background check package that best fits your organization's needs and budget.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {pricing.map((plan) => (
+          <div class={`relative bg-white rounded-xl shadow-lg p-8 ${plan.popular ? 'ring-2 ring-blue-500 transform scale-105' : ''}`}>
+            {plan.popular && (
+              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                <span class="bg-blue-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
+                  Most Popular
+                </span>
+              </div>
+            )}
+            
+            <div class="text-center mb-8">
+              <h3 class="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+              <div class="mb-4">
+                <span class="text-4xl font-bold text-gray-900">{plan.price}</span>
+                <span class="text-gray-600 ml-2">{plan.period}</span>
+              </div>
+              <p class="text-gray-600">{plan.description}</p>
+            </div>
+            
+            <ul class="space-y-4 mb-8">
+              {plan.features.map((feature) => (
+                <li class="flex items-center text-gray-700">
+                  <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                  </svg>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            <div class="text-center">
+              <a href="/contact" 
+                 class={`w-full py-3 px-6 rounded-lg font-semibold transition-colors inline-block ${
+                   plan.popular 
+                     ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                     : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                 }`}>
+                Get Started
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Get answers to common questions about our background check services.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-6">
+          {faqs.map((faq) => (
+            <div class="bg-white rounded-lg p-6 shadow-sm">
+              <h3 class="text-lg font-semibold text-gray-900 mb-3">{faq.question}</h3>
+              <p class="text-gray-600">{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services Section -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Related Services
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Explore our other compliance and validation services to build a comprehensive risk management strategy.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="group bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition-all">
+          <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+            <img src="/images/sanctions-check.svg" alt="Sanctions Screening" class="w-8 h-8" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Sanction list screening</h3>
+          <p class="text-gray-600 mb-6">
+            Screen individuals and entities against international sanctions lists and PEP databases.
+          </p>
+          <a href="/services/sanctions-screening" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            Learn More →
+          </a>
+        </div>
+
+        <div class="group bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition-all">
+          <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+            <img src="/images/compliance.svg" alt="Compliance Services" class="w-8 h-8" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Compliance Services</h3>
+          <p class="text-gray-600 mb-6">
+            Expert guidance and implementation of compliance frameworks and regulatory requirements.
+          </p>
+          <a href="/services/compliance-services" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            Learn More →
+          </a>
+        </div>
+
+        <div class="group bg-gray-50 rounded-xl p-8 hover:bg-white hover:shadow-lg transition-all">
+          <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6">
+            <img src="/images/empresas-platform.svg" alt="Empresas Platform" class="w-8 h-8" />
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">Tusdatos Empresas Platform</h3>
+          <p class="text-gray-600 mb-6">
+            Business intelligence platform for company research and market insights.
+          </p>
+          <a href="/services/empresas-platform" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+            Learn More →
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-blue-600 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        Ready to Get Started with Background Checks?
+      </h2>
+      <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+        Contact us today to learn more about our background check services and how we can help your organization make informed hiring decisions.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+          Contact Us
+        </a>
+        <a href="/pricing" class="border border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors">
+          View All Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout> 

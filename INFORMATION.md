@@ -8,9 +8,9 @@ Tusdatos specializes in data validation services to foster trust and security in
 
 - Identity validation for individuals, companies, and vehicles.  
 - Fraud and risk prevention in recruitment, hiring, and onboarding processes.  
-- Regulatory compliance with frameworks such as LAFT (Anti-Money Laundering and Terrorism Financing), PTEE (Business Transparency and Ethics Program), BASC (Business Alliance for Secure Commerce), and AML (Anti-Money Laundering).  
+- Regulatory compliance with frameworks such as Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo), PTEE (PTEE – Plan de Transparencia y Ética Empresarial), BASC (Business Alliance for Secure Commerce), and AML (Anti-Money Laundering).  
 - Execution of KYC (Know Your Customer), KYB (Know Your Business), and enhanced due diligence processes.  
-- Implementation of LAFT compliance systems, control list validations, and specialized compliance training.
+- Implementation of Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) compliance systems, control list validations, and specialized compliance training.
 
 ## Comprehensive Service Offerings  
 Tusdatos automates data retrieval from over 300 national and international sources to deliver a wide range of services:
@@ -18,17 +18,32 @@ Tusdatos automates data retrieval from over 300 national and international sourc
 ### 1. Background Validation  
 Quick and secure background checks for individuals, companies, and vehicles, helping organizations reduce risk in hiring and business decisions.
 
-### 2. Restrictive List Checks and Compliance  
-Access to global and local lists, including OFAC, UN, EU sanctions, PEPs, and national databases from Colombia and Ecuador. These checks support compliance with LAFT, KYC, KYB, and AML requirements.
+### 2. Sanction list screening and Compliance  
+Access to global and local lists, including OFAC, UN, EU sanctions, PEPs, and national databases from Colombia and Ecuador. These checks support compliance with Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo), KYC, KYB, and AML requirements.
 
-### 3. Deceased Person Validation  
-Verifies deceased individuals in official registries to help businesses maintain accurate records, reduce fraud, and manage sensitive legal processes like inheritance and insurance.
+### 3. Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) and PTEE (PTEE – Plan de Transparencia y Ética Empresarial) Implementation
+Consulting services for companies subject to Colombian and international regulations. Ensures proper implementation of required systems and procedures based on guidance from relevant authorities.
 
-### 4. Implementation of LAFT and PTEE Systems  
+### 4. Implementation of Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) and PTEE (PTEE – Plan de Transparencia y Ética Empresarial) Systems
 Consulting services for companies subject to Colombian and international regulations. Ensures proper implementation of required systems and procedures based on guidance from relevant authorities.
 
 ### 5. Tusdatos Empresas Platform  
-A business intelligence platform offering public data on Colombian companies. It provides rankings, financial insights, and alerts to support safer and more informed B2B decisions.
+A comprehensive business intelligence platform (empresas.tusdatos.co) offering detailed public data on Colombian companies. The platform provides rankings, financial insights, and alerts to support safer and more informed B2B decisions.
+
+**Key Features:**
+- **Company Search by Name or Tax ID (NIT)**: Find information on legally established companies in Colombia
+- **Access to Rankings**: Explore Top 100 companies by revenue and employees, organized by sector or geography, with charts and figures to identify market trends
+- **Free General Information**: Access basic company data at no cost
+- **Paid Detailed Reports**: Access comprehensive information including contact details, legal representatives, establishments, historical financial data, and charts
+- **Custom Data Solutions**: Receive tailored information based on a list of company tax IDs (suppliers or clients), or set parameters to discover new companies by sector, revenue range, size, location, economic activity, company age, and other criteria
+
+**Business Benefits:**
+- **Secure Relationship Building**: Thoroughly research companies to establish reliable commercial relationships and minimize risks
+- **Improved Decision Making**: Make more informed strategic, financial, and commercial decisions based on data provided by the organizations themselves
+- **Market and Competitive Intelligence**: Gain insights into sector dynamics and competitor behavior
+- **Business Opportunity Identification**: Discover new niches and potential clients or partners
+- **Operational Efficiency**: Reduce time and costs associated with company information searches
+- **Enhanced Productivity**: Provide commercial, financial, and administrative teams with data to focus on analysis and create value-driven strategies
 
 ### 6. Due Diligence  
 A complete evaluation service for counterparties based on public and private data. Enables identification of red flags and mitigation of fraud, corruption, or other commercial risks.
@@ -59,7 +74,7 @@ Tusdatos stands out in the market through:
 ## Coverage and Recognition  
 Tusdatos operates in Colombia and Ecuador with global list coverage. The company has received notable recognition:
 
-- Featured in Forbes Colombia’s Top 100 Startups (2020–2023).  
+- Featured in Forbes Colombia's Top 100 Startups (2020–2023).  
 - Winner of Best Digital Startup at the 2023 LatamDigital Awards.  
 - Winner of Best Product/Service at the 2024 LatamDigital Awards.  
 - Graduate of acceleration programs including Apps.co, Rockstart, and TVC.
@@ -75,7 +90,7 @@ Designed for background checks on individuals, including list databases, PEPs, a
 - Armored Plan: From COP $1,130,000 for 400 checks (24 months), adds parafiscal, reputational checks, monitoring, and advanced retry functions.
 
 ### Compliance Plans  
-Targeted at businesses needing to comply with due diligence regulations (LAFT, PTEE, AML, etc.).
+Targeted at businesses needing to comply with due diligence regulations (Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo), PTEE (PTEE – Plan de Transparencia y Ética Empresarial), AML, etc.).
 
 - Basic Compliance: From COP $580,000 for 1,000 checks (24 months).  
 - Compliance: From COP $660,000 for 400 checks, adds online validations and monitoring.  

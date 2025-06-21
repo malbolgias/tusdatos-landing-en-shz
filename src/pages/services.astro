@@ -1,0 +1,623 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Try to load services content
+let servicesData = {
+  title: "Our Services",
+  description: "Comprehensive compliance and validation solutions for Colombian businesses",
+  services: [
+    {
+      title: "Background Checks",
+      description: "Comprehensive background verification services for individuals and entities",
+      features: [
+        "Criminal record verification",
+        "Identity validation",
+        "Employment history verification",
+        "Education verification",
+        "Credit history checks",
+        "Address verification"
+      ]
+    },
+    {
+      title: "Sanction list screening",
+      description: "Real-time screening against international sanctions and PEP databases",
+      features: [
+        "OFAC sanctions screening",
+        "PEP screening",
+        "UN sanctions lists",
+        "EU sanctions lists",
+        "Real-time updates",
+        "Comprehensive reporting"
+      ]
+    },
+    {
+      title: "Compliance Services",
+      description: "Expert guidance and implementation of compliance frameworks including Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) and PTEE (PTEE – Plan de Transparencia y Ética Empresarial) systems.",
+      features: [
+        "Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) implementation",
+        "PTEE (PTEE – Plan de Transparencia y Ética Empresarial) framework",
+        "Training & documentation",
+        "Risk assessment",
+        "Policy development",
+        "Ongoing support"
+      ]
+    },
+    {
+      title: "Tusdatos Empresas Platform",
+      subtitle: "Business Intelligence & Company Research",
+      description: "Comprehensive business intelligence platform providing detailed company data, rankings, and market insights for informed B2B decisions.",
+      longDescription: "Tusdatos Empresas is our advanced business intelligence platform that offers comprehensive access to Colombian company data. With powerful search capabilities, detailed rankings, and customizable reports, it enables businesses to make informed decisions, identify opportunities, and build secure commercial relationships.",
+      features: [
+        {
+          title: "Company Search by Name or Tax ID (NIT)",
+          description: "Find information on legally established companies in Colombia using company names or tax identification numbers."
+        },
+        {
+          title: "Top 100 Company Rankings",
+          description: "Access rankings of companies by revenue and employees, organized by sector or geography with charts and market trends."
+        },
+        {
+          title: "Free Basic Information",
+          description: "Access basic company data at no cost to get started with your research."
+        },
+        {
+          title: "Paid Detailed Reports",
+          description: "Comprehensive reports including contact details, legal representatives, establishments, and historical financial data."
+        },
+        {
+          title: "Custom Data Solutions",
+          description: "Tailored information based on company lists or parameters for discovering new companies by various criteria."
+        },
+        {
+          title: "Market Trend Analysis",
+          description: "Charts and figures to identify market trends and sector dynamics for strategic decision making."
+        }
+      ],
+      benefits: [
+        "Secure relationship building through thorough company research",
+        "Improved decision making with data-driven insights",
+        "Market and competitive intelligence",
+        "Business opportunity identification",
+        "Operational efficiency and cost reduction",
+        "Enhanced team productivity and strategic planning"
+      ],
+      useCases: [
+        "B2B lead generation and prospecting",
+        "Supplier and vendor due diligence",
+        "Market research and competitive analysis",
+        "Investment and partnership evaluation",
+        "Credit risk assessment",
+        "Strategic planning and market entry",
+        "Sales team intelligence and targeting",
+        "Financial analysis and reporting"
+      ],
+      process: [
+        "Access the platform at empresas.tusdatos.co",
+        "Search companies by name or Tax ID",
+        "Browse free basic information",
+        "Purchase detailed reports as needed",
+        "Request custom data solutions",
+        "Download rankings and market insights",
+        "Set up alerts for company changes",
+        "Generate bulk reports for multiple companies"
+      ],
+      pricing: [
+        "Free basic company information",
+        "Paid detailed reports starting from COP $50,000",
+        "Custom bulk data solutions available",
+        "Enterprise packages for large organizations",
+        "API access for integration",
+        "White-label solutions for partners"
+      ],
+      url: "https://empresas.tusdatos.co"
+    }
+  ]
+};
+
+try {
+  const { getCollection } = await import('astro:content');
+  const services = await getCollection('services');
+  if (services && services.length > 0) {
+    servicesData.title = services[0].data.title;
+    servicesData.description = services[0].data.description;
+  }
+} catch (error) {
+  console.log('Using fallback content for Services page');
+}
+
+// Detailed service information
+const detailedServices = [
+  {
+    id: "background-checks",
+    title: "Background Checks",
+    subtitle: "Comprehensive Due Diligence Solutions",
+    description: "Our background check services provide thorough verification of individuals and entities to help you make informed business decisions and maintain compliance with regulatory requirements.",
+    longDescription: "In today's complex business environment, thorough background checks are essential for risk management and regulatory compliance. Our comprehensive background check services help organizations verify the identity, credentials, and history of individuals and entities they do business with.",
+    features: [
+      {
+        title: "Identity Verification",
+        description: "Multi-source identity verification including government databases, biometric checks, and document validation.",
+        icon: "fingerprint"
+      },
+      {
+        title: "Criminal Record Checks",
+        description: "Comprehensive criminal background checks across multiple jurisdictions and databases.",
+        icon: "shield"
+      },
+      {
+        title: "Employment History Validation",
+        description: "Verification of employment history, positions held, and performance records.",
+        icon: "briefcase"
+      },
+      {
+        title: "Education Verification",
+        description: "Confirmation of educational credentials, degrees, and certifications.",
+        icon: "academic-cap"
+      },
+      {
+        title: "Reference Checks",
+        description: "Professional reference verification and character assessments.",
+        icon: "users"
+      },
+      {
+        title: "Financial History",
+        description: "Credit history checks and financial stability assessments.",
+        icon: "currency-dollar"
+      }
+    ],
+    benefits: [
+      "Reduce hiring risks and improve decision-making",
+      "Ensure regulatory compliance",
+      "Protect your organization's reputation",
+      "Streamline the validation process",
+      "Access to comprehensive databases"
+    ],
+    useCases: [
+      "Employee hiring and onboarding",
+      "Business partner verification",
+      "Vendor and supplier screening",
+      "Board member and executive validation",
+      "Contractor and consultant verification"
+    ],
+    process: [
+      "Initial consultation and requirements assessment",
+      "Data collection and authorization",
+      "Multi-source verification process",
+      "Comprehensive report generation",
+      "Ongoing monitoring and updates"
+    ]
+  },
+  {
+    id: "sanctions-screening",
+    title: "Sanction list screening",
+    subtitle: "International Sanctions & PEP Screening",
+    description: "Screen individuals and entities against international sanctions lists, politically exposed persons (PEP) databases, and regulatory blacklists to ensure compliance with global regulations.",
+    longDescription: "International business operations require compliance with various sanctions regimes and regulations. Our sanction list screening services help organizations identify and avoid relationships with sanctioned individuals, politically exposed persons, and other high-risk entities.",
+    features: [
+      {
+        title: "OFAC Sanctions Screening",
+        description: "Comprehensive screening against US Office of Foreign Assets Control sanctions lists.",
+        icon: "flag"
+      },
+      {
+        title: "PEP Screening",
+        description: "Identification of politically exposed persons and their associates.",
+        icon: "user-circle"
+      },
+      {
+        title: "UN Sanctions Lists",
+        description: "Screening against United Nations Security Council sanctions lists.",
+        icon: "globe"
+      },
+      {
+        title: "EU Restrictive Measures",
+        description: "Compliance with European Union sanctions and restrictive measures.",
+        icon: "map"
+      },
+      {
+        title: "Real-time Updates",
+        description: "Continuous monitoring and real-time updates of sanctions lists.",
+        icon: "clock"
+      },
+      {
+        title: "Custom Lists",
+        description: "Integration with your organization's internal blacklists and watchlists.",
+        icon: "list"
+      }
+    ],
+    benefits: [
+      "Ensure global regulatory compliance",
+      "Reduce financial crime risks",
+      "Protect against reputational damage",
+      "Automated screening processes",
+      "Comprehensive coverage of international lists"
+    ],
+    useCases: [
+      "Customer onboarding and KYC processes",
+      "Business partner due diligence",
+      "Investment and transaction screening",
+      "Vendor and supplier verification",
+      "Ongoing customer monitoring"
+    ],
+    process: [
+      "Risk assessment and list selection",
+      "Automated screening implementation",
+      "Manual review of potential matches",
+      "Comprehensive reporting and documentation",
+      "Continuous monitoring and alerts"
+    ]
+  },
+  {
+    id: "compliance-services",
+    title: "Compliance Services",
+    subtitle: "Regulatory Framework Implementation",
+    description: "Expert guidance and implementation of compliance frameworks including Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) and PTEE (PTEE – Plan de Transparencia y Ética Empresarial) systems.",
+    longDescription: "Navigating complex regulatory requirements can be challenging for organizations. Our compliance services provide expert guidance and implementation support for various regulatory frameworks, helping organizations establish robust compliance programs and maintain regulatory adherence.",
+    features: [
+      {
+        title: "Anti-Money Laundering and Counter-Terrorism Financing – AML/CTF (LAFT – Lavado de Activos y Financiación del Terrorismo) Implementation",
+        description: "Complete implementation of anti-money laundering and terrorist financing systems.",
+        icon: "shield-check"
+      },
+      {
+        title: "PTEE (PTEE – Plan de Transparencia y Ética Empresarial) Framework",
+        description: "Terrorism prevention and financing framework implementation.",
+        icon: "lock-closed"
+      },
+      {
+        title: "Regulatory Audits",
+        description: "Comprehensive compliance audits and gap analysis.",
+        icon: "document-search"
+      },
+      {
+        title: "Risk Assessment",
+        description: "Detailed risk assessments and mitigation strategies.",
+        icon: "chart-bar"
+      },
+      {
+        title: "Training Programs",
+        description: "Customized compliance training for staff and management.",
+        icon: "academic-cap"
+      },
+      {
+        title: "Documentation",
+        description: "Comprehensive policy and procedure documentation.",
+        icon: "document-text"
+      }
+    ],
+    benefits: [
+      "Ensure regulatory compliance",
+      "Reduce compliance risks and penalties",
+      "Streamline compliance processes",
+      "Expert guidance and support",
+      "Comprehensive documentation and training"
+    ],
+    useCases: [
+      "Financial institution compliance",
+      "Corporate governance implementation",
+      "Regulatory framework adoption",
+      "Compliance program development",
+      "Ongoing compliance monitoring"
+    ],
+    process: [
+      "Initial compliance assessment",
+      "Framework design and customization",
+      "Implementation and integration",
+      "Staff training and documentation",
+      "Ongoing monitoring and support"
+    ]
+  },
+  {
+    id: "empresas-platform",
+    title: "Tusdatos Empresas Platform",
+    subtitle: "Business Intelligence & Company Research",
+    description: "Comprehensive business intelligence platform providing detailed company data, rankings, and market insights for informed B2B decisions.",
+    longDescription: "Tusdatos Empresas is our advanced business intelligence platform that offers comprehensive access to Colombian company data. With powerful search capabilities, detailed rankings, and customizable reports, it enables businesses to make informed decisions, identify opportunities, and build secure commercial relationships.",
+    features: [
+      {
+        title: "Company Search by Name or Tax ID (NIT)",
+        description: "Find information on legally established companies in Colombia using company names or tax identification numbers."
+      },
+      {
+        title: "Top 100 Company Rankings",
+        description: "Access rankings of companies by revenue and employees, organized by sector or geography with charts and market trends."
+      },
+      {
+        title: "Free Basic Information",
+        description: "Access basic company data at no cost to get started with your research."
+      },
+      {
+        title: "Paid Detailed Reports",
+        description: "Comprehensive reports including contact details, legal representatives, establishments, and historical financial data."
+      },
+      {
+        title: "Custom Data Solutions",
+        description: "Tailored information based on company lists or parameters for discovering new companies by various criteria."
+      },
+      {
+        title: "Market Trend Analysis",
+        description: "Charts and figures to identify market trends and sector dynamics for strategic decision making."
+      }
+    ],
+    benefits: [
+      "Secure relationship building through thorough company research",
+      "Improved decision making with data-driven insights",
+      "Market and competitive intelligence",
+      "Business opportunity identification",
+      "Operational efficiency and cost reduction",
+      "Enhanced team productivity and strategic planning"
+    ],
+    useCases: [
+      "B2B lead generation and prospecting",
+      "Supplier and vendor due diligence",
+      "Market research and competitive analysis",
+      "Investment and partnership evaluation",
+      "Credit risk assessment",
+      "Strategic planning and market entry",
+      "Sales team intelligence and targeting",
+      "Financial analysis and reporting"
+    ],
+    process: [
+      "Access the platform at empresas.tusdatos.co",
+      "Search companies by name or Tax ID",
+      "Browse free basic information",
+      "Purchase detailed reports as needed",
+      "Request custom data solutions",
+      "Download rankings and market insights",
+      "Set up alerts for company changes",
+      "Generate bulk reports for multiple companies"
+    ],
+    pricing: [
+      "Free basic company information",
+      "Paid detailed reports starting from COP $50,000",
+      "Custom bulk data solutions available",
+      "Enterprise packages for large organizations",
+      "API access for integration",
+      "White-label solutions for partners"
+    ],
+    url: "https://empresas.tusdatos.co"
+  }
+];
+---
+
+<Layout title="Services - Tusdatos">
+  <!-- Hero Section -->
+  <section class="relative py-20 bg-gradient-to-br from-blue-600 to-blue-800 text-white overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Ccircle cx="30" cy="30" r="2"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center max-w-4xl mx-auto">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-6 backdrop-blur-sm">
+          <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          </svg>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6">
+          Our Services
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 opacity-90">
+          Comprehensive compliance and validation solutions tailored for Colombian businesses
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/services/background-checks" class="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors text-lg">
+            Background Checks
+          </a>
+          <a href="/services/sanctions-screening" class="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors text-lg">
+            Sanctions Screening
+          </a>
+          <a href="/services/compliance-services" class="bg-blue-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-400 transition-colors text-lg">
+            Compliance Services
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="py-20 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+          Comprehensive Solutions
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          We provide end-to-end compliance and validation services to help your business meet regulatory requirements and mitigate risks.
+        </p>
+      </div>
+
+      <!-- Services Grid with Images -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16">
+        <div class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden">
+            <img src="/images/photos/security-compliance.jpg" alt="Background Checks" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 mx-auto">
+              <img src="/images/background-check.svg" alt="Background Check Icon" class="w-8 h-8" />
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Background Checks</h3>
+            <p class="text-gray-600 text-center mb-6">
+              Comprehensive background verification services for individuals and entities
+            </p>
+            <div class="text-center">
+              <a href="/services/background-checks" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden">
+            <img src="/images/photos/digital-security.jpg" alt="Sanctions Screening" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 mx-auto">
+              <img src="/images/sanctions-check.svg" alt="Sanctions Check Icon" class="w-8 h-8" />
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Sanctions Screening</h3>
+            <p class="text-gray-600 text-center mb-6">
+              Real-time screening against international sanctions and PEP databases
+            </p>
+            <div class="text-center">
+              <a href="/services/sanctions-screening" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden">
+            <img src="/images/photos/business-analysis.jpg" alt="Compliance Services" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 mx-auto">
+              <img src="/images/compliance.svg" alt="Compliance Icon" class="w-8 h-8" />
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Compliance Services</h3>
+            <p class="text-gray-600 text-center mb-6">
+              Expert guidance and implementation of compliance frameworks
+            </p>
+            <div class="text-center">
+              <a href="/services/compliance-services" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="group bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-100 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2">
+          <div class="h-64 overflow-hidden">
+            <img src="/images/photos/team-collaboration.jpg" alt="Tusdatos Empresas Platform" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          </div>
+          <div class="p-8">
+            <div class="flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-6 mx-auto">
+              <img src="/images/empresas-platform.svg" alt="Empresas Platform Icon" class="w-8 h-8" />
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4 text-center">Tusdatos Empresas Platform</h3>
+            <p class="text-gray-600 text-center mb-6">
+              Business intelligence platform for company research and market insights
+            </p>
+            <div class="text-center">
+              <a href="/services/empresas-platform" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                Learn More →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Services -->
+  <section class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          Comprehensive Service Details
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Explore our detailed service offerings and understand how we can help your organization maintain compliance and make informed decisions.
+        </p>
+      </div>
+
+      {detailedServices.map((service, index) => (
+        <div class="mb-20" id={service.id}>
+          <!-- Service Header -->
+          <div class="text-center mb-12">
+            <h3 class="text-3xl font-bold text-gray-900 mb-2">{service.title}</h3>
+            <p class="text-xl text-blue-600 mb-4">{service.subtitle}</p>
+            <p class="text-lg text-gray-600 max-w-4xl mx-auto">{service.longDescription}</p>
+          </div>
+
+          <!-- Features Grid -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {service.features.map((feature) => (
+              <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+                <div class="text-blue-600 mb-4">
+                  <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20" style="width: 2rem; height: 2rem;">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <h4 class="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h4>
+                <p class="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <!-- Benefits, Use Cases, and Process -->
+          <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Benefits -->
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+              <h4 class="text-xl font-bold text-gray-900 mb-4">Key Benefits</h4>
+              <ul class="space-y-3">
+                {service.benefits.map((benefit) => (
+                  <li class="flex items-start text-gray-700">
+                    <svg class="w-5 h-5 text-green-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                    {benefit}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Use Cases -->
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+              <h4 class="text-xl font-bold text-gray-900 mb-4">Use Cases</h4>
+              <ul class="space-y-3">
+                {service.useCases.map((useCase) => (
+                  <li class="flex items-start text-gray-700">
+                    <svg class="w-5 h-5 text-blue-500 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20" style="width: 1.25rem; height: 1.25rem;">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    {useCase}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Process -->
+            <div class="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
+              <h4 class="text-xl font-bold text-gray-900 mb-4">Our Process</h4>
+              <ol class="space-y-3">
+                {service.process.map((step, stepIndex) => (
+                  <li class="flex items-start text-gray-700">
+                    <span class="bg-blue-600 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-semibold mr-3 mt-1 flex-shrink-0">
+                      {stepIndex + 1}
+                    </span>
+                    {step}
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gray-50 py-20">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">
+        Ready to Get Started?
+      </h2>
+      <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+        Contact us today to learn more about our services and how we can help your business maintain compliance and make informed decisions.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+          Contact Us
+        </a>
+        <a href="/pricing" class="bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold border border-blue-600 hover:bg-blue-50 transition-colors">
+          View Pricing
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout> 
